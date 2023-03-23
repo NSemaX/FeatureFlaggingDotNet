@@ -13,7 +13,7 @@ namespace FeatureFlaggingDotNet.FeatureFlagging.Domain.FeatureFlagging
             // Fetch feature flags from the GrowthBook API
             var features = new Dictionary<string, Feature> { };
 
-            var url = "https://cdn.growthbook.io/api/features/your-sdk-number";
+            var url = "https://cdn.growthbook.io/api/features/your-sdk-number"; //replace with your sdk
 
             using (var client = new HttpClient())
             {
