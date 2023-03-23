@@ -23,7 +23,8 @@ namespace FeatureFlaggingDotNet.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public async Task<IEnumerable<WeatherForecast>> Get() //Fahrenheit  Celsius  Kelvin
         {
-            var temperatureType= await _featureFlagging.GetTemperatureFeature();
+            //var temperatureType= await _featureFlagging.GetTemperatureFeature();
+            var temperatureType = "Celsius";
             return _weatherFactory.WeatherOperation(temperatureType).GetWeather(temperatureType);
         }
     }
