@@ -18,13 +18,15 @@ namespace FeatureFlaggingDotNet.Controllers
             _logger = logger;
             _weatherFactory = weatherFactory;
             _featureFlagging = featureFlagging ?? throw new ArgumentNullException(nameof(featureFlagging));
+
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public async Task<IEnumerable<WeatherForecast>> Get() //Fahrenheit  Celsius  Kelvin
         {
-            //var temperatureType= await _featureFlagging.GetTemperatureFeature();
             var temperatureType = "Celsius";
+            //var temperatureType= await _featureFlagging.GetTemperatureFeature();
+            Console.Write("feature flagged temprature type : {0}", temperatureType);
             return _weatherFactory.WeatherOperation(temperatureType).GetWeather(temperatureType);
         }
     }
